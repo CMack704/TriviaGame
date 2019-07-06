@@ -1,0 +1,26 @@
+.jumbotron {
+    margin: 100px 200px 0px 200px;
+    background-color: rgb(54, 208, 247);
+    color: purple;
+}
+body {
+    background-image: url("../images/sports/Sports.png");
+}
+.btn {
+    background-color: purple;
+    color: rgb(54, 208, 247);
+    margin: 40px 0px 0px 510px;
+}
+#img {
+    height: 300px;
+    width: 400px;
+    margin: 25px 0px 0px 350px;
+}
+#title {
+    text-align: center;
+    padding-left: 410px;
+    font-weight: bold;
+    font-size: 3em;
+    
+}
+
