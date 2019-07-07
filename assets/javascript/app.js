@@ -24,3 +24,10 @@ var wrongAnswers = ["Michael Jordan", "LeBron James", "Wilt Chamberlin",
     "Randy Johnson", "Roger Clemens", "Cy Young",
     "Magic Johnson", "Larry Bird", "Karl Malone"
 ]
+$(document).ready(function(){
+    $("button").click(function(){
+        $("img").hide();
+        $("button").html("Submit")
+    });
+
+});
