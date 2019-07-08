@@ -15,19 +15,41 @@ var questions = ["Who is the all-time leader of the NBA in points scored, with 3
     "Which NBA player was the first to average a triple double in the NBA finals?", 
     "Who is the only player to win NBA finals MVP on the losing team?"
 ]
-var correctAnswers = ["Kareem Abdul-Jabbar", "Cam Newton", "Deion Sanders", "50", "Peyton Manning", "Nolan Ryan", "Lebron James", "Jerry West"]
-var wrongAnswers = ["Michael Jordan", "LeBron James", "Wilt Chamberlin",
-    "Michael Vick", "Randall Cunningham", "Steve Young",
-    "Bo Jackson", "Russel Wilson",
-    "55", "48", "60",
-    "Drew Brees", "Joe Montana", "Patrick MaHomes",
-    "Randy Johnson", "Roger Clemens", "Cy Young",
-    "Magic Johnson", "Larry Bird", "Karl Malone"
+var answers = [ "Michael Jordan", "Kevin Durant", "Kareem Abdul-Jabbar", "Wilt Chamberlin",
+    "Michael Vick", "Cam Newton", "Randall Cunningham", "Steve Young",
+    "Bo Jackson", "Deion Sanders", "Russel Wilson",
+    "55", "48", "50", "60",
+    "Peyton Manning", "Drew Brees", "Joe Montana", "Patrick MaHomes",
+    "Randy Johnson", "Nolan Ryan", "Roger Clemens", "Cy Young",
+    "Magic Johnson", "Lebron James", "Larry Bird", 
+    "Jerry West", "Karl Malone"
 ]
+
 $(document).ready(function(){
     $("button").click(function(){
         $("img").hide();
-        $("button").html("Submit")
+        $("button").text("Submit")
+
+        var mins = 2;
+        var secs = mins * 60;
+
+        function minutes() {
+            mins = Math.floor(secs / 60);
+            return mins;
+        }
+        function seconds() {
+            return secs - Math.round(mins * 60);
+        }
+
+
+        $("#quest-1").text(questions[0]);
+        $("#quest-2").text(questions[1]);
+        $("#quest-3").text(questions[2]);
+        $("#quest-4").text(questions[3]);
+        $("#quest-5").text(questions[4]);
+        $("#quest-6").text(questions[5]);
+        $("#quest-7").text(questions[6]);
+        $("#quest-8").text(questions[7]);
     });
 
 });
