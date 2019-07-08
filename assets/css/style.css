@@ -26,6 +26,7 @@ body {
 .question {
     font-size: 2em;
     font-weight: bold;
+    padding: 5px;
 }
 .done {
     text-align: center;
@@ -49,5 +50,8 @@ body {
     font-weight: bold;
     margin-left: 430px;
     font-size: 1.75em;
+}
+.answer {
+    font-size: .75em;
 }
 
