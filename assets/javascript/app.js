@@ -26,7 +26,7 @@ var answers = [ "Michael Jordan", "Kevin Durant", "Kareem Abdul-Jabbar", "Wilt C
 ]
 
 $(document).ready(function(){
-    $("button").click(function(){
+    $(".btn").click(function(){
         $("img").hide();
         $("button").text("Submit")
 
@@ -40,6 +40,7 @@ $(document).ready(function(){
         function seconds() {
             return secs - Math.round(mins * 60);
         }
+        
 
 
         $("#quest-1").text(questions[0]);
@@ -50,6 +51,47 @@ $(document).ready(function(){
         $("#quest-6").text(questions[5]);
         $("#quest-7").text(questions[6]);
         $("#quest-8").text(questions[7]);
+
+       var newbutton1 = $("<button class='col-sml-3 answer'></button>");
+       var newbutton2 = $("<button class='col-sml-3 answer'></button>");
+       var newbutton3 = $("<button class='col-sml-3 answer'></button>");
+       var newbutton4 = $("<button class='col-sml-3 answer'></button>");
+
+       $(".answers").append(newbutton1, newbutton2, newbutton3, newbutton4);
+
+
+
+
+
+
+
+
+
+        
+        $(".btn").click(function(){
+            $(".question").hide();
+            $(".answer").hide();
+            $(".answers").hide();
+            $(".btn").hide();
+
+            var allDone = $("<p class='row done'></p>");
+            var correctAnsText = $("<p class='row correct'></p>");
+            var wrongAnsText = $("<p class='row wrong'></p>");
+            var unansweredText = $("<p class='row unans'></p>");
+
+
+            $(".jumbotron").append(allDone, correctAnsText, wrongAnsText, unansweredText);
+
+            $(".done").text("Finished!!");
+            $(".correct").text("Correct Answers: " + correctAns);
+            $(".wrong").text("Wrong Answers: " + wrongAns);
+            $(".unans").text("Unanswered: " + unanswered);
+
+        });
+        
+
+
+
     });
 
 });

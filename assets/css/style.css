@@ -27,4 +27,27 @@ body {
     font-size: 2em;
     font-weight: bold;
 }
+.done {
+    text-align: center;
+    font-size: 2.5em;
+    font-weight: bold;
+    padding-left: 465px;
+    margin-top: 50px;
+}
+.correct {
+    font-weight: bold;
+    margin: 50px 0px 0px 430px;
+    font-size: 1.75em;
+}
+.wrong {
+    font-weight: bold;
+    margin-left: 430px;
+    font-size: 1.75em;
+    margin-bottom: 0px;
+}
+.unans {
+    font-weight: bold;
+    margin-left: 430px;
+    font-size: 1.75em;
+}
 
