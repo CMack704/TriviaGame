@@ -78,11 +78,9 @@ $(document).ready(function(){
 
         function count() {
             time--;
-            console.log(time);
             var convertedTime = timeConverter(time);
             $("#time").text(convertedTime);
             if (time === 0 ) {
-                console.log("times up");
                 clearInterval(intervalId);
                 clockRunnung = false;
             }
@@ -118,7 +116,25 @@ $(document).ready(function(){
             $(".btn").hide();
             $("#timeleft").hide();
 
-            $("input[type='checkbox']").val();
+            
+            var answers = [];
+            $("form input[type=checkbox]:checked").each(function() {
+                console.log($(this).attr("value"));
+                console.log($(this).prop("checked"));
+                answers.push( $(this).attr('value') );
+
+
+            });
+            console.log(answers)
+            for (var i = 0; i < answers.length; i++) {
+                console.log(answers[i], questions[i].correct)
+            if (answers[i] == questions[i].correct) {
+                correctAns++;
+            } else if (answers[i] != questions[i].correct) {
+                wrongAns++;
+            } else {
+                unanswered++;
+            }};
 
 
             var allDone = $("<p class='row done'></p>");
