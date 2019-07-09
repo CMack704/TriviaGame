@@ -46,28 +46,56 @@ var questions = [
 
 $(document).ready(function(){
 
-    $(".col-sml").hide();
+    
     $(".question").hide();
+    $("#timeleft").hide();
 
 
 
 
     $(".btn").click(function(){
-        $("img").hide();
-        $(".col-sml").show();
+        $("img").hide();        
         $(".question").show();
-
+        $("#timeleft").show();
         $(".btn").text("Submit")
+        start();
+        
 
-        var mins = 2;
-        var secs = mins * 60;
+        var intervalId;
+        var time = 120;
+        var clockRunnung = false 
+       
 
-        function minutes() {
-            mins = Math.floor(secs / 60);
-            return mins;
+        function start() {
+            intervalId = setInterval(count, 1000);
+            clockRunnung = true;
         }
-        function seconds() {
-            return secs - Math.round(mins * 60);
+        function stop() {
+                clearInterval(intervalId);
+                clockRunnung = false;
+        }
+
+        function count() {
+            time--;
+            var convertedTime = timeConverter(time);
+            $("#time").text(convertedTime);
+        }
+        
+
+
+        function timeConverter(t) {
+            var mins = Math.floor(t / 60);
+            var secs = t - (mins * 60);
+            if (secs < 10) {
+                secs = "0" + secs;
+            }
+            if (mins === 0) {
+                mins = "00";
+            }
+            else if (mins < 10) {
+                mins = "0" + mins;
+            }
+            return mins + ":" + secs;
         }
         
 
@@ -77,9 +105,9 @@ $(document).ready(function(){
         
         $(".btn").click(function(){
             $(".question").hide();
-            $(".col-sml").hide();
-            $(".answers").hide();
             $(".btn").hide();
+            $("#timeleft").hide();
+
 
             var allDone = $("<p class='row done'></p>");
             var correctAnsText = $("<p class='row correct'></p>");
