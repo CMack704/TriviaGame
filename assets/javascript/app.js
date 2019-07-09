@@ -51,7 +51,7 @@ $(document).ready(function(){
     $("#timeleft").hide();
 
 
-
+    
 
     $(".btn").click(function(){
         $("img").hide();        
@@ -59,6 +59,7 @@ $(document).ready(function(){
         $("#timeleft").show();
         $(".btn").text("Submit")
         start();
+        
         
 
         var intervalId;
@@ -69,16 +70,22 @@ $(document).ready(function(){
         function start() {
             intervalId = setInterval(count, 1000);
             clockRunnung = true;
+            
         }
         function stop() {
-                clearInterval(intervalId);
-                clockRunnung = false;
+            
         }
 
         function count() {
             time--;
+            console.log(time);
             var convertedTime = timeConverter(time);
             $("#time").text(convertedTime);
+            if (time === 0 ) {
+                console.log("times up");
+                clearInterval(intervalId);
+                clockRunnung = false;
+            }
         }
         
 
@@ -97,6 +104,9 @@ $(document).ready(function(){
             }
             return mins + ":" + secs;
         }
+  
+        
+
         
 
        
@@ -107,6 +117,8 @@ $(document).ready(function(){
             $(".question").hide();
             $(".btn").hide();
             $("#timeleft").hide();
+
+            $("input[type='checkbox']").val();
 
 
             var allDone = $("<p class='row done'></p>");
