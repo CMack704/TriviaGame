@@ -83,6 +83,42 @@ $(document).ready(function(){
             if (time === 0 ) {
                 clearInterval(intervalId);
                 clockRunnung = false;
+                $(".question").hide();
+                $(".btn").hide();
+                $("#timeleft").hide();
+    
+                
+                var answers = [];
+                $("form input[type=checkbox]:checked").each(function() {
+                    
+                    answers.push( $(this).attr('value') );
+    
+    
+                });
+                
+                for (var i = 0; i < answers.length; i++) {
+                    console.log(answers[i], questions[i].correct)
+                if (answers[i] == questions[i].correct) {
+                    correctAns++;
+                } else if (answers[i] != questions[i].correct) {
+                    wrongAns++;
+                } else {
+                    unanswered++;
+                }};
+    
+    
+                var allDone = $("<p class='row done'></p>");
+                var correctAnsText = $("<p class='row correct'></p>");
+                var wrongAnsText = $("<p class='row wrong'></p>");
+                var unansweredText = $("<p class='row unans'></p>");
+    
+    
+                $(".jumbotron").append(allDone, correctAnsText, wrongAnsText, unansweredText);
+    
+                $(".done").text("Finished!!");
+                $(".correct").text("Correct Answers: " + correctAns);
+                $(".wrong").text("Wrong Answers: " + wrongAns);
+                $(".unans").text("Unanswered: " + unanswered);
             }
         }
         
@@ -102,12 +138,12 @@ $(document).ready(function(){
             }
             return mins + ":" + secs;
         }
-  
-        
 
-        
+        $('input[type="checkbox"]').on("change", function(){
+            $(this).siblings('input[type="checkbox"]').prop("checked", false);            
+        });
 
-       
+            
 
 
         
@@ -119,13 +155,12 @@ $(document).ready(function(){
             
             var answers = [];
             $("form input[type=checkbox]:checked").each(function() {
-                console.log($(this).attr("value"));
-                console.log($(this).prop("checked"));
+               
                 answers.push( $(this).attr('value') );
 
 
             });
-            console.log(answers)
+            
             for (var i = 0; i < answers.length; i++) {
                 console.log(answers[i], questions[i].correct)
             if (answers[i] == questions[i].correct) {
